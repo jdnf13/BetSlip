@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.item {
+  height: 500px;
+  padding: 8em;
+  margin: 1em;
+  margin-left: 8em;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 500px;
+  align-items: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
