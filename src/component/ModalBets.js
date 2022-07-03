@@ -24,7 +24,6 @@ export default function ModalBets(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
-    //window.location.reload();
   }
   const handleClose = () => setOpen(false);
   const [listas,setListas] = React.useState([]);
@@ -42,7 +41,7 @@ export default function ModalBets(props) {
       selection.map(item => {
         if(item.id === undefined){
           listaItems.push(
-            <p key={1}>Lo Siento, seguimos progresando en esto...</p>
+            <p key={1}>Lo siento, seguimos progresando en esto...Intenta refrescar la pagina</p>
           );
         }else{
           listaItems.push(

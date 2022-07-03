@@ -44,12 +44,10 @@ export default function ButtonsActions(props){
                 bets.push(aux);
             }else{
                 bets = [];
-                localStorage.removeItem('selection');
+                window.location.reload();
+
             }
-            //window.location.reload();
-            //else
-              //  bets = []
-            //setColor("error");
+            localStorage.removeItem('selection');
         }
 
         if(bets.length > 0)      
