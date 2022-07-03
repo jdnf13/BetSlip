@@ -60,12 +60,15 @@ export default function EventList(props){
                         </Typography>
                     </CardContent>
                     {markets.map(item => (
-                        <CardActions className="itemCard" key = {item.id}>
-                            {item.name}   
-                            <ButtonsActions
-                                actions={item.selections}
-                            />
-                        </CardActions>
+                        <div key = {item.id+1} >
+                            <CardActions className="itemCard" key = {item.id}>
+                                {item.name}   
+                                <ButtonsActions
+                                    actions={item.selections}
+                                />
+                            </CardActions>
+                            <hr key = {item.id+2}></hr>
+                        </div>
 
                         
                     ))}                        

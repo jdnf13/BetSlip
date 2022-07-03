@@ -10,9 +10,6 @@ import Tooltip from '@mui/material/Tooltip';
 import ModalBets from './ModalBets';
 const AppBarCustom = () => {
 
-  const handleOpenUserMenu = (event) => {
-    
-  };
 
 
 

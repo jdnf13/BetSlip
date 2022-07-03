@@ -22,13 +22,39 @@ const style = {
 export default function ModalBets(props) {
 
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true);
+    //window.location.reload();
+  }
   const handleClose = () => setOpen(false);
+  const [listas,setListas] = React.useState([]);
+
+  React.useEffect(()=>{
+    selectionUser();
+  },[])
 
   const selectionUser = () =>{
-    let selection = localStorage.getItem("selection")?localStorage.getItem("selection"):null
-    return selection
+    let selection = localStorage.getItem("selection")?JSON.parse(localStorage.getItem("selection")):[]
+    let lista = selection.toString();    
+
+    let listaItems = [];
+    if(selection.length > 0){
+      selection.map(item => {
+        if(item.id === undefined){
+          listaItems.push(
+            <p key={1}>Lo Siento, seguimos progresando en esto...</p>
+          );
+        }else{
+          listaItems.push(
+            <p key={item.id}>{item.name + ': ' + item.price}</p>
+          ); 
+        }
+      })
+    }
+    setListas(listaItems)
   }
+
+
 
   return (
     <div>
@@ -52,10 +78,7 @@ export default function ModalBets(props) {
             <Typography id="transition-modal-title" variant="h6" component="h2">
               Tus Apuestas
             </Typography>
-
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              {selectionUser()}
-            </Typography>
+              {listas}
           </Box>
         </Fade>
         :
