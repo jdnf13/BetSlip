@@ -1,20 +1,24 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .item {
-  height: 500px;
-  padding: 8em;
+  height: 50me;
+  width: 400em;
+  max-width: 40em;
+  max-height: 50em;
+  padding: 1em;
   margin: 1em;
   margin-left: 8em;
-
+  background-color: rgb(0, 140, 255);
 }
-
 .container {
+  background-color: #282c34;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 500px;
+  height: 80em;
   align-items: center;
 }
 

@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import '../App.css';
 import { CardMedia } from "@mui/material";
 import img1 from '../img/img1.jpg'
+import ButtonsActions from "./ButtnsActions";
 
 
 export default function EventList(props){
@@ -17,8 +18,19 @@ export default function EventList(props){
 
     }
 
+    const ReturnButtons = (selections) => {
+        let mensaje = JSON.stringify(selections);
+        let Buttons = [];
+        selections.map(item => {
+            <ButtonsActions
+
+            />
+        })
+        return mensaje
+    }
+
     if(markets && markets.length > 0){
-        let selections = [];
+      /*  let selections = [];
         markets.forEach(element => {
             selections[element.selections.id]=element.selections;
         });
@@ -32,31 +44,32 @@ export default function EventList(props){
             let count = 0
             count++
             final[count] = item
-        })
+        })*/
         
         return (
-                <Card className="item" sx={{ minWidth: 345 }}>                  
-                <CardMedia
-                    component="img"
-                    height="194"
-                    src={img1}
-                />   
-                {markets.map(item => (
-                    <CardContent key = {item.id}>
-                        <Typography gutterBottom variant="h5" component="div">
-                        {item.name}
+                <Card style={{backgroundColor: "grey"}} variant="outlined" className="item" sx={{ minWidth: 345 }}>  
+                <div className="containerCard">
+                    <CardMedia
+                        component="img"
+                        height="194"
+                        src={img1}
+                    />   
+                    <CardContent className="containerCard" key = {name}>
+                        <Typography style={{textAlign: "center"}} gutterBottom variant="h5" component="div">
+                        {name}
                         </Typography>
                     </CardContent>
+                    {markets.map(item => (
+                        <CardActions className="itemCard" key = {item.id}>
+                            {item.name}   
+                            <ButtonsActions
+                                actions={item.selections}
+                            />
+                        </CardActions>
 
-                ))}      
-                
-                <CardActions>
-                {final[1].map(item => (
-                    <Button key = {item.id} variant="contained" size="large" 
-                            onClick={(e) => onClickButton(item,e)}>{item.name}</Button>
-
-                ))}
-                </CardActions>
+                        
+                    ))}                        
+                </div>                
                 </Card>
           );
     }else{
