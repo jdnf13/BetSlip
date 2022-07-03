@@ -46,7 +46,7 @@ export default function ButtonsActions(props){
                 bets = [];
                 localStorage.removeItem('selection');
             }
-            window.location.reload();
+            //window.location.reload();
             //else
               //  bets = []
             //setColor("error");
