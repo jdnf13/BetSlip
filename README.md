@@ -4,6 +4,7 @@
 
 Para usar el proyecto es necesario contar con node js (nvm install v14.19.3) o superior
 instalar las dependencias usando npm install
+### `nvm install v14.19.3`
     Que se instala? Se usaron componentes de MaterialUI para el diseño de los componentes @material-ui/...
 
 iniciar el proyecto usando npm start
