@@ -1,6 +1,45 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inicializar el proyecto
+
+Para usar el proyecto es necesario contar con node js version 14 o sumerios
+instalar las dependencias usando npm install
+    Que se instala? Se usaron componentes de MaterialUI para el diseño de los componentes @material-ui/...
+
+iniciar el proyecto usando npm start
+
+
+## Casos de uso
+
+La plataforma se divide en 4 secciones
+    1/ Cuando se refresca la pagina, mientras el servicio responde, se renderiza un Alert con el estado del servcio, si este falla se imprime el error
+    2/ Cuando este responde se renderizan las Card
+        a/ Imagen estatica para el evento
+        b/ Nombre del Evento
+        c/ Las markets disponibles para el Evento
+        d/ Los botones de seleccionde la apuesta para el usuario
+    3/ AppBar con el nombre del proyecto y el icono de usuario desde donde podra acceder a la lista de apuestas si estan disponibles
+    4/ Modal para ver la lista de apuestas del usuario con la opcion de Quitar (-) la apuesta de las selecciones
+
+## Decisiones de diseño
+
+Se decide realizar presentar la solucion usando ReactJs, ya que es la plataforma en la que mas me desempeño actualmente
+Se usan componentes de MaterialIU para colaborar con la maquetacion del proyecto y permitirme concentrarme en la logida de servicio del proyecto
+a la vez que le da un aspecto mas agradable para la experiencia de usuario
+Se utilizan hooks para facilitar el consumo del servicio y previo renderizado de los componentes y que el contenido sea dinamico
+Se utiliza un archivo Constant para almacenar de forma local la experiencia del usuario, esto debido a que no se cuenta con
+un API que permita la actualizacion en tiempo real de los datos que el usuario manipula en pantalla.
+
+
+## Uso de la plataforma
+
+Abrir el navegador en [http://localhost:3000] para iniciar la carga de la aplicacion web
+una vez se muestren los eventos disponibles, seleccionar el evento por el que quiere apostar
+puede cambiar su dedicion seleccionando la otra opcion en el mismo Evento y markets
+puede seleccionar otro evento y otro markets
+Puede dirigirse al icono de usuario y ver allí la lista de eventos por los que aposto
+Al frente de cada evento podra ver la opcion de Quitar(-) para eliminar esta apuesta
+
 
 ## Available Scripts
 

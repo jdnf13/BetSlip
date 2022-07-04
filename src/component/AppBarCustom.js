@@ -5,6 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import ModalBets from './ModalBets';
+
+/**
+ * 
+ * @returns Este componente retorna el appBar que proporciona acceso a la lista de apuestas
+ */
 const AppBarCustom = () => {
 
 
@@ -15,7 +20,7 @@ const AppBarCustom = () => {
       <Container maxWidth="xl"> 
         <Toolbar disableGutters>  
         <Typography>IRIDIAN TEST</Typography>       
-          <Box style={{paddingLeft:"90%"}} sx={{ flexGrow: 0 }}>
+          <Box style={{paddingLeft:"70%"}} sx={{ flexGrow: 0 }}>
               <ModalBets>
               </ModalBets>
           </Box>

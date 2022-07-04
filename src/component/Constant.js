@@ -1,6 +1,7 @@
 /**
- * Archivo donde se guardan las constantes principales del proyecto
- * Tambien contiene algunos métodos adicionales importantes
+ * En este archivo se almacen el array con las selecciones del usuario
+ * Tambien contiene metodos para añadir, actualizar, eliminar y retornar 
+ * la lista de las secciones del usuario
  * @class Constant
  *
  */

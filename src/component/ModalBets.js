@@ -8,6 +8,19 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Constant from './Constant';
 
+/**
+ * Este compoenente renderiza el modal para ver las apuestas del usuario
+ * Se usan hooks setList() para actualizar el estado del componente que renderiza la lista de selecciones del usuario
+ * setOpen para abrir el modal y acceder a la lista
+ * 
+ * Dependiendo de la cantidad de selecciones del usuario, se renderiza un parrafo informando sus apuestas
+ * y la opcion de quitar esta apuesta de la lista,
+ * en el estado 'lista' se retornan los componentes a renderizar de la lista
+ * 
+ * el metodo deleteItem permite cnsultar si el evento existe en el array de selecciones y lo elimina
+ * usando el metodo Constant.deleteList() desde el archivo Constant
+ */
+
 const style = {
   position: 'absolute',
   top: '50%',

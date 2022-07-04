@@ -6,6 +6,8 @@
 .item {
   height: 50me;
   width: 400em;
+  min-width: 10em;
+  min-height: 5em;
   max-width: 40em;
   max-height: 50em;
   padding: 1em;

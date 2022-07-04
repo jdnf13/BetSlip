@@ -4,6 +4,15 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
 import EventList from './EventList';
 
+/**
+ * 
+ * @returns Este componente consume el servicio suministrado para la prueba
+ * se implementa el hook useEffect para permitir que react actualice su estado despues de renderizar
+ * esto para poder renderizar en pantalla los eventos despues de la respuesta del servicio
+ * si este falla o no retorna eventos, el DOM no colapsa, sino que muestra el return de acuerdo a la respuesta
+ * del mismo
+ */
+
 export default function Service() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
