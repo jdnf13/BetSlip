@@ -15,7 +15,8 @@
     constructor(){
         this.getList    =   this.getList.bind();
         this.setList    =   this.setList.bind();
-        this.upList     =   this.upList.bind();        
+        this.upList     =   this.upList.bind();   
+        this.deleteList =   this.deleteList.bind(this);     
     }
 
     getList     =   ()  =>  {
@@ -37,6 +38,18 @@
                 Constant.listBet[index] =   item;
             }
         } 
+    }
+
+    deleteList      =   (seccion)  =>  {
+        if(seccion !== undefined && seccion !== null){
+            let newArrayList    =   [];
+            Constant.listBet.map(item   =>  {
+                if(item.seccion !== seccion){
+                    newArrayList.push(item);
+                }
+            });
+            Constant.listBet = newArrayList;
+        }
     }
 
 

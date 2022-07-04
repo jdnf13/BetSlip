@@ -49,7 +49,6 @@ export default function ButtonsActions(props){
         }       
         setSelect(item.name);
         localStorage.setItem('selection',JSON.stringify('apuestas'));
-        console.log('Apuestas seleccionadas ---> ',Constant.getList());
     }
 
 
@@ -71,7 +70,7 @@ export default function ButtonsActions(props){
             {botones}
             {select !== ''?<Stack onClose={handleClose} sx={{ width: '100%' }} spacing={2}>
             <Alert  severity="success">
-                Seleccionaste {select}, para cambiar tu apuesta selecciona
+                Apostaste en este Evento por ultima vez por {select}, para cambiar tu apuesta selecciona
             </Alert>
             </Stack>:null}
                         

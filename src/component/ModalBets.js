@@ -38,7 +38,7 @@ export default function ModalBets() {
 
   const selectionUser = () =>{
     let selection = getList;
-
+    console.log('Apuestas',selection);
     let listaItems = [];
     if(selection !== null && selection[0] !== undefined){
       selection.map(item => {
@@ -48,7 +48,9 @@ export default function ModalBets() {
           );
         }else{
           listaItems.push(
-            <p key={item.id}>{item.name + ': ' + item.price}</p>
+            <div key={item.id+2}>
+              <p key={item.id}>{item.name + ': ' + item.price}<a style={{paddingLeft:"25%",color:'red',cursor:"pointer"}} key={item.id+1} onClick={(e) => {deleteItem(item.seccion,e)}}>{"Quitar (-)"}</a></p>              
+            </div>
           ); 
         }
       })
@@ -59,6 +61,27 @@ export default function ModalBets() {
     }
     setListas(listaItems)
   }
+
+  function deleteItem(item){
+    const itemsExist =  Constant.getList();
+
+    if(itemsExist !== null){
+        let exit = false;
+        itemsExist.map(items    =>  {
+            if(items.seccion === item)
+                exit = true
+        });
+        if(exit === true){
+            Constant.deleteList(item);
+            setList(Constant.getList());
+            console.log('item Eliminado',item);
+            console.log('array despues - ',Constant.getList())
+            exit    =   false;
+            handleClose();
+        }
+    }
+
+}
 
 
 

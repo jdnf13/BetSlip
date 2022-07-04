@@ -10,41 +10,14 @@ import img1 from '../img/img1.jpg'
 import ButtonsActions from "./ButtnsActions";
 
 
+
 export default function EventList(props){
     const{name,markets } = props;
 
-    function onClickButton(item){
-        console.log('price',item.price);
+    
 
-    }
-
-    const ReturnButtons = (selections) => {
-        let mensaje = JSON.stringify(selections);
-        let Buttons = [];
-        selections.map(item => {
-            <ButtonsActions
-
-            />
-        })
-        return mensaje
-    }
 
     if(markets && markets.length > 0){
-      /*  let selections = [];
-        markets.forEach(element => {
-            selections[element.selections.id]=element.selections;
-        });
-        for (let index = 0; index < markets.length; index++) {
-            if(markets[index].selections)
-                selections.push( markets[index].selections);            
-        }
-
-        let final = [];
-        selections.map(item =>{
-            let count = 0
-            count++
-            final[count] = item
-        })*/
         
         return (
                 <Card style={{backgroundColor: "grey"}} variant="outlined" className="item" sx={{ minWidth: 345 }}>  
