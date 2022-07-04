@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade';
 import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import Constant from './Constant';
 
 const style = {
   position: 'absolute',
@@ -19,29 +20,31 @@ const style = {
   p: 4,
 };
 
-export default function ModalBets(props) {
+export default function ModalBets() {
 
+  const [getList,setList] = React.useState(Constant.getList());
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
+    setList(Constant.getList());
     setOpen(true);
+    selectionUser();
   }
   const handleClose = () => setOpen(false);
   const [listas,setListas] = React.useState([]);
 
-  React.useEffect(()=>{
+ /* React.useEffect(()=>{
     selectionUser();
-  },[])
+  },[])*/
 
   const selectionUser = () =>{
-    let selection = localStorage.getItem("selection")?JSON.parse(localStorage.getItem("selection")):[]
-    let lista = selection.toString();    
+    let selection = getList;
 
     let listaItems = [];
-    if(selection.length > 0){
+    if(selection !== null && selection[0] !== undefined){
       selection.map(item => {
         if(item.id === undefined){
           listaItems.push(
-            <p key={1}>Lo siento, seguimos progresando en esto...Intenta refrescar la pagina</p>
+            <p key={1}>Has apostado estos eventos:</p>
           );
         }else{
           listaItems.push(
@@ -49,6 +52,10 @@ export default function ModalBets(props) {
           ); 
         }
       })
+    }else{
+      listaItems.push(
+        <p key={1}>Aun no haces tu Apuesta? ¡Animate!</p>
+      );
     }
     setListas(listaItems)
   }

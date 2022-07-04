@@ -65,6 +65,7 @@ export default function EventList(props){
                                 {item.name}   
                                 <ButtonsActions
                                     actions={item.selections}
+                                    seccion={item.id}
                                 />
                             </CardActions>
                             <hr key = {item.id+2}></hr>

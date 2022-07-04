@@ -19,6 +19,7 @@ export default function Service() {
           (result) => {
             setIsLoaded(true);
             setItems(result);
+            localStorage.setItem('selection',JSON.stringify(result));
           },
           //
           (error) => {

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import '../App.css';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import Constant from "./Constant";
+
 
 
 export default function ButtonsActions(props){
-    const {actions} = props;
+    const {actions,seccion} = props;
     let color = 'error'
     let botones = [];
     const [select,setSelect] = useState('');
-    const [disable,setDisable] = useState(false);
 
 
    const handleClose    =   ()  =>  {
@@ -20,61 +20,45 @@ export default function ButtonsActions(props){
    
 
     const onClickButtn = (item) => {
-        let bets = localStorage.getItem('selection')?JSON.parse(localStorage.getItem('selection')):[];
-        let exist = false;
-        setSelect(item.name);
-        setDisable(true);
-        localStorage.removeItem('selection');
-        bets.map(ids=>{
-            if(ids.id === item.id)
-                exist = true;
-        });
-        if(exist === false){
-            bets.push(item); 
-            //setColor("success");           
-        }else{
-            let aux = [];            
-            bets.map(exist =>{
-                if(exist.id !== item.id)
-                    aux.push(exist);                
+        const itemsExist =  Constant.getList();
+        const id = item.id;
+        const name=item.name
+        const price=item.price
+        const seccion =item.seccion;
+        let itemAdd =   [];
+        itemAdd["id"] = id
+        itemAdd["name"] = name
+        itemAdd["price"] = price
+        itemAdd["seccion"] = seccion
+        //Constant.setList(itemAdd);
+        if(itemsExist !== null){
+            let exit = false;
+            itemsExist.map(items    =>  {
+                if(items.seccion === itemAdd.seccion)
+                    exit = true
             });
-
-            if(aux.length > 0){
-                bets = [];
-                bets.push(aux);
+            if(exit === true){
+                Constant.upList(itemAdd);
+                exit    =   false;
             }else{
-                bets = [];
-                localStorage.removeItem('selection');
+                Constant.setList(itemAdd);
+                exit = false;
             }
-            window.location.reload();
-
-        }
-
-        if(bets.length > 0)      
-            localStorage.setItem('selection',JSON.stringify(bets));
+        }else{
+            Constant.setList(itemAdd);
+        }       
+        setSelect(item.name);
+        localStorage.setItem('selection',JSON.stringify('apuestas'));
+        console.log('Apuestas seleccionadas ---> ',Constant.getList());
     }
 
-    const onClickReNew =    (e) => {
-        setDisable(false);
-        setSelect('');
-    } 
+
 
     actions.map(item =>{
-        let getId = localStorage.getItem('selection')?JSON.parse(localStorage.getItem('selection')):null;
-        let id = null;        
-        if(getId !== null){
-            getId.map(ids => {
-                if(ids.id === item.id)
-                    id = item.id
-            });
-        }
-        if(id !== null)
-            color = "success";
-        else
-            color = "error";
+            item["seccion"] = seccion;
             botones.push(
             <div key={item.id+2}>
-                <Button disabled={disable} style={{margin:"1em",width:"20em",}} color={color} key={item.id} variant="contained" size="small" onClick={(e) => onClickButtn(item,e)} >{item.name}</Button>
+                <Button style={{margin:"1em",width:"20em",}} color={color} key={item.id} variant="contained" size="small" onClick={(e) => onClickButtn(item,e)} >{item.name}</Button>
                 
             </div>
         )
@@ -87,11 +71,10 @@ export default function ButtonsActions(props){
             {botones}
             {select !== ''?<Stack onClose={handleClose} sx={{ width: '100%' }} spacing={2}>
             <Alert  severity="success">
-                Seleccionaste {select}, para cambiar tu apuesta selecciona Renovar
+                Seleccionaste {select}, para cambiar tu apuesta selecciona
             </Alert>
             </Stack>:null}
-            <AutorenewIcon style={{paddingLeft:'85%'}} onClick={(e) => onClickReNew(e)}/>
-            <p style={{paddingLeft:'79%'}} onClick={(e) => onClickReNew(e)} >Renovar</p>            
+                        
         </div>
     )
 }
