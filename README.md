@@ -2,7 +2,7 @@
 
 ## Inicializar el proyecto
 
-Para usar el proyecto es necesario contar con node js version 14 o sumerios
+Para usar el proyecto es necesario contar con node js (nvm install v14.19.3) o superior
 instalar las dependencias usando npm install
     Que se instala? Se usaron componentes de MaterialUI para el diseño de los componentes @material-ui/...
 
