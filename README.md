@@ -23,8 +23,8 @@ La plataforma se divide en 4 secciones
 
 ## Decisiones de diseño
 
-Se decide realizar presentar la solucion usando ReactJs, ya que es la plataforma en la que mas me desempeño actualmente
-Se usan componentes de MaterialIU para colaborar con la maquetacion del proyecto y permitirme concentrarme en la logida de servicio del proyecto
+Se decide realizar la solucion usando ReactJs, ya que es la plataforma en la que mas me desempeño actualmente
+Se usan componentes de MaterialIU para colaborar con la maquetacion del proyecto y permitirme concentrarme en la logica de servicio del proyecto
 a la vez que le da un aspecto mas agradable para la experiencia de usuario
 Se utilizan hooks para facilitar el consumo del servicio y previo renderizado de los componentes y que el contenido sea dinamico
 Se utiliza un archivo Constant para almacenar de forma local la experiencia del usuario, esto debido a que no se cuenta con
